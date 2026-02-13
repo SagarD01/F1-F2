@@ -1,0 +1,94 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+
+	int MapSize;
+	char text;
+	int num;
+	int num1;
+
+
+	cout << "[1]Пустой" << endl;
+	cout << "[2]Заполненый" << endl;
+	cout << "[3]Четыре квадрата" << endl;
+	cout << "Выбирите: ";
+	cin >> num;
+	cout << "Введите размер карты: ";
+	cin >> MapSize;
+	cout << "Введите текстуру: ";
+	cin >> text;
+
+
+	switch (num) {
+
+		case 1://пустой
+			for (int x = 0; x < MapSize; x++) {
+				for (int y = 0; y < MapSize; y++) {
+					if (y == MapSize / 2 && x == MapSize / 2 ) {
+						cout << text << " ";
+					}
+					else if (y < MapSize/2 || x < MapSize/2 ) {
+						cout << ". ";
+					}
+					else if (y==MapSize/2) {
+						cout <<text<< " ";
+					}
+					else if (x == MapSize - 1 || y == MapSize - 1) {
+						cout<< text << " ";
+					}
+					else if (x == MapSize/2 || y==MapSize) {
+						cout << text << " ";
+					}
+					
+					else {
+						cout << ". ";
+
+					}
+				}
+				cout << endl;
+			}
+			break;
+
+
+		case 2: //заполненый
+	
+			for (int x = 0; x < MapSize; x++) {
+				for (int y = 0; y < MapSize; y++) {
+					if (x / (MapSize/2)== 0 || y / (MapSize/2) == 0) {
+						cout <<" .";
+					}
+					else {
+						cout << text << " ";
+	
+					}
+				}
+				cout << endl;
+			}
+			break;
+		case 3:
+			cout << "[1]Заполненый" << endl;
+			cout << "[2]Пустой" << endl;
+			cin >> num1;
+			switch (num1) {
+				case 1: //Заполненый
+					for (int x = 0; x < MapSize; x++) {
+						for (int y = 0; y < MapSize; y++) {
+							if (y == MapSize / 2 && x == MapSize / 2) {
+								cout << "3 ";
+							}
+							else if (x / MapSize  == 0 || y / MapSize == 0) {
+								cout <<" " << text;
+							}
+						}
+						cout << endl;
+					}
+					break;
+				case 2:
+					break;
+			}
+
+			break;
+	}
+}
